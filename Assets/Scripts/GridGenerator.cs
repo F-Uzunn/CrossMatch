@@ -27,9 +27,7 @@ public class GridGenerator : InstanceManager<GridGenerator>
         EventManager.RemoveHandler(GameEvent.OnCheckNeighbours, OnCheckNeighbours);
         EventManager.RemoveHandler(GameEvent.OnCheckIfAddedToDeleteList, OnCheckIfAddedToDeleteList);
     }
-    void Start()
-    {
-    }
+
     void OnCreateGrid(object gridSze)
     {
         gridSize = (int)gridSze;
