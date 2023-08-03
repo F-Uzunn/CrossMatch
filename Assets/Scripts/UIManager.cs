@@ -6,6 +6,16 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public TMP_InputField inputField;
+    public TextMeshProUGUI matchCountText;
+    private int matchCount;
+    private void OnEnable()
+    {
+        EventManager.AddHandler(GameEvent.OnUpdateMatchCount, OnUpdateMatchCount);
+    }
+    private void OnDisable()
+    {
+        EventManager.RemoveHandler(GameEvent.OnUpdateMatchCount, OnUpdateMatchCount);
+    }
     public void CreateGridButton()
     {
         if(inputField != null)
@@ -21,5 +31,11 @@ public class UIManager : MonoBehaviour
                 Debug.Log("integer only");
             }
         }
+    }
+
+    public void OnUpdateMatchCount()
+    {
+        matchCount++;
+        matchCountText.text = "MATCH COUNT : " + matchCount.ToString();
     }
 }

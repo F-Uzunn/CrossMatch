@@ -5,8 +5,11 @@ public enum GameEvent
 {
     //========================BU KISMI KENDI EVETLERINIZLE DUZELTECEKSINIZ======================//
     OnCreateGrid,
-    OnClearCellList
-
+    OnClearCellList,
+    OnCheckNeighbours,
+    OnAddNeighboursToDeleteList,
+    OnCheckIfAddedToDeleteList,
+    OnUpdateMatchCount
 }
 public static class EventManager
 {
