@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class CellPiece : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject crossObject;
+    public bool isCellSelected;
+
+    public int columnCount;
+    public int rowCount;
+    void Awake()
     {
-        
+        crossObject = transform.GetChild(0).gameObject;
+        crossObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-        
+        isCellSelected = !isCellSelected;
+        crossObject.SetActive(isCellSelected);
     }
 }
