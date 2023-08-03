@@ -1,32 +1,10 @@
 using System;
 using System.Collections.Generic;
 
-/*
-    private void OnEnable()
-    {
-        EventManager.AddHandler(GameEvent.EVENTINIZ, EVENTINIZ); // EVENTINIZ method ismi, bir void acip onu kullanacaksiniz
-    }
-
-
-    private void OnDisable()
-    {
-        EventManager.RemoveHandler(GameEvent.EVENTINIZ, EVENTINIZ); // EVENTINIZ method ismi, bir void acip onu kullanacaksiniz
-    }
-
-
-    EventManager.Broadcast(GameEvent.EVENT);  //EVENTI BU SEKILDE CAGIRIYORUZ
-*/
-
 public enum GameEvent
 {
     //========================BU KISMI KENDI EVETLERINIZLE DUZELTECEKSINIZ======================//
-    OnSelectSnake,
-
-    OnMoveSnake,
-
-    OnFailSnake,
-
-    OnWinCheck,
+    OnCreateGrid
 
 }
 public static class EventManager
