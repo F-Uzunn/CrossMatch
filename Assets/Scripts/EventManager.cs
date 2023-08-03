@@ -4,7 +4,8 @@ using System.Collections.Generic;
 public enum GameEvent
 {
     //========================BU KISMI KENDI EVETLERINIZLE DUZELTECEKSINIZ======================//
-    OnCreateGrid
+    OnCreateGrid,
+    OnClearCellList
 
 }
 public static class EventManager

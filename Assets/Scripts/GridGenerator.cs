@@ -9,10 +9,22 @@ public class GridGenerator : InstanceManager<GridGenerator>
     public int gridSize;
     public float gridSpace;
 
+    private void OnEnable()
+    {
+        EventManager.AddHandler(GameEvent.OnCreateGrid, OnCreateGrid);
+        EventManager.AddHandler(GameEvent.OnClearCellList, OnClearCellList);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.RemoveHandler(GameEvent.OnCreateGrid, OnCreateGrid);
+        EventManager.RemoveHandler(GameEvent.OnClearCellList, OnClearCellList);
+    }
 
     [ContextMenu("CreateGrid")]
-    void OnCreateGrid()
+    void OnCreateGrid(object gridSze)
     {
+        gridSize = (int)gridSze;
         FitCameraToGrid();
 
         float gridWidth = (1 + gridSpace) * gridSize - gridSpace;
@@ -45,5 +57,14 @@ public class GridGenerator : InstanceManager<GridGenerator>
 
         mainCamera.orthographicSize = screenHeight / (1.75f * canvasScale);
         mainCamera.transform.position = new Vector3(0, 0, -10f);
+    }
+
+    void OnClearCellList()
+    {
+        foreach (var item in cellList)
+        {
+            Destroy(item);
+        }
+        cellList.Clear();
     }
 }
